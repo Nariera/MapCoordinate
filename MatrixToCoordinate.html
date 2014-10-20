@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+
+
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        @media all {
+            textarea {
+                padding: 5px;
+                width: 100%;
+                border-radius: 10px;
+                
+            }
+
+            .label-text{
+                display:block;
+                margin:5px;
+            }
+            
+            .header-wrapper {
+                border: solid 1px grey;
+                border-radius: 10px;
+                background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6+ */
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+                background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10+,Safari5.1+ */
+                background: -o-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Opera 11.10+ */
+                background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* IE10+ */
+                background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+                text-align: center;
+            }
+            .button-wrapper {
+                text-align:center;
+            }
+
+            #divWrapper {
+                padding: 10px;
+            }
+            input[type=button] {
+                font-weight:bold;
+                font-size:20px;
+                width:300px;
+                height:50px;
+                border-color: rgba(37,104,186,1);
+                border-radius: 5px;
+                background: -moz-linear-gradient(top, rgba(125,185,232,0) 0%, rgba(37,104,186,0.53) 53%, rgba(37,104,186,1) 100%); /* FF3.6+ */
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(125,185,232,0)), color-stop(53%,rgba(37,104,186,0.53)), color-stop(100%,rgba(37,104,186,1))); /* Chrome,Safari4+ */
+                background: -webkit-linear-gradient(top, rgba(125,185,232,0) 0%,rgba(37,104,186,0.53) 53%,rgba(37,104,186,1) 100%); /* Chrome10+,Safari5.1+ */
+                background: -o-linear-gradient(top, rgba(125,185,232,0) 0%,rgba(37,104,186,0.53) 53%,rgba(37,104,186,1) 100%); /* Opera 11.10+ */
+                background: -ms-linear-gradient(top, rgba(125,185,232,0) 0%,rgba(37,104,186,0.53) 53%,rgba(37,104,186,1) 100%); /* IE10+ */
+                background: linear-gradient(to bottom, rgba(125,185,232,0) 0%,rgba(37,104,186,0.53) 53%,rgba(37,104,186,1) 100%); /* W3C */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007db9e8', endColorstr='#2568ba',GradientType=0 ); /* IE6-9 */
+            }
+        }
+
+        @media (min-width: 600px) {
+        }
+
+        @media (max-width: 599px) {
+        }
+    </style>
+    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLvxlFB-yVw_adKrzrcJ587XJ6AH2PXSA"></script>
+    <script type="text/javascript">
+        //var oLatLng = new google.maps.LatLng(-34.397, 150.644);
+        //var oMap;
+        //function initialize() {
+        //    var mapOptions = {
+        //        center: oLatLng,
+        //        zoom: 8
+        //    };
+        //    oMap = new google.maps.Map(document.getElementById("map-canvas"),
+        //        mapOptions);
+        //    google.maps.event.addListener(oMap, 'click', function (a_oEvent) {
+        //        AddMarker(a_oEvent.latLng);
+        //    });
+        //    AddMarker(oLatLng);
+        //}
+        //google.maps.event.addDomListener(window, 'load', initialize);
+
+        //function AddMarker(a_oLatLng) {
+        //    var marker = new google.maps.Marker({
+        //        position: a_oLatLng,
+        //        draggable: true,
+        //        title: "Hello World!"
+        //    });
+        //    marker.setMap(oMap);
+        //}
+
+        //var Map = new function () {
+        //    this.base = null; //document.getElementById("map-canvas")
+        //    this.maps = null;
+        //    this.origin = null;
+        //    this.destinations = null;
+
+        //    this.prototype.set = function (a_oDOMObject) {
+        //        this.base = a_oDOMObject; //document.getElementById("map-canvas")
+        //    };
+
+        //    this.prototype.init = function (a_fInitialLatitude, a_fInitialLongitude) {
+        //        if (this.base == null) {
+        //            return; //don't continue;
+        //        }
+        //        if (a_fInitialLatitude == null) {
+        //            a_fInitialLatitude = 0.0;
+        //        }
+        //        if (a_fInitialLongitude == null) {
+        //            a_fInitialLongitude = 0.0;
+        //        }
+        //        var oMapOptions = {
+        //            center: new google.maps.LatLng(a_fInitialLatitude, a_fInitialLongitude),
+        //            zoom: 8
+        //        }
+        //        oMap = new google.maps.Map(this.base);
+        //    };
+        //}
+
+        /*
+            number,latitude,longitude,meters,feet
+0,-1.0546279422758742,-48.515625,-20.322,-66.675
+1,1.0546279422758868,-50.009765625,0.000,0.000
+2,0.615222552406841,-50.537109375,16.998,55.768
+
+number,latitude,longitude,meters
+0,7.18810087117902,-47.8125,-4183.538
+1,6.751896464843375,-36.9140625,-4337.186
+2,1.845383988573187,-39.462890625,-4556.562
+
+
+"0,-1.0546279422758742,-48.515625,-20.322,-66.675\n1,1.0546279422758868,-50.009765625,0.000,0.000\n2,0.615222552406841,-50.537109375,16.998,55.768\n"
+        */
+
+        function ParseInput() {
+            try {
+                //var InputRegex = new RegExp("(\d+,-?\d+\.?\d*,-?\d+\.?\d*,-?\d+\.?\d*,-?\d+\.?\d*\s?)");
+                //var InputRegex = /(\d+),(-?\d+\.?\d*),(-?\d+\.?\d*),(-?\d+\.?\d*),(-?\d+\.?\d*)\s?/; include feet
+                var InputRegex = /(\d+),(-?\d+\.?\d*),(-?\d+\.?\d*),(-?\d+\.?\d*)\s?/;
+                var txtInput = document.getElementById("txtInput");
+                var txtOutput = document.getElementById("txtOutput");
+                var sInput = txtInput.value;
+ 
+                if (sInput == null || sInput == "") {
+                    txtOutput.value = "Please add text and click \"Translate\".";
+                    return;
+                }
+
+                //setting up input
+                var asSplitCoordinate = sInput.split("\n");
+                var asCoordinateOrigin = InputRegex.exec(asSplitCoordinate[0]);
+                var fLatitudeOrigin = parseFloat(asCoordinateOrigin[2]);
+                var fLongitudeOrigin = parseFloat(asCoordinateOrigin[3]);
+                var fElevationOrigin = parseFloat(asCoordinateOrigin[4]); 
+
+                var sOutput = "";
+
+                for (var i = 1; i < asSplitCoordinate.length; i++) {
+                    if (asSplitCoordinate[i] == "" || asSplitCoordinate[i] == null) {
+                        continue;
+                    }
+                    var asCoordinateDest = InputRegex.exec(asSplitCoordinate[i]);
+                    var fLatitudeDest = parseFloat(asCoordinateDest[2]);
+                    var fLongitudeDest = parseFloat(asCoordinateDest[3]);
+                    var fElevationDest = parseFloat(asCoordinateDest[4]);
+                    var fXValue = ((fLatitudeDest - fLatitudeOrigin) / 360) * (2 * Math.PI * Math.cos(fLatitudeDest) * 6371) * 1000;
+                    var fYValue = ((fLongitudeDest - fLongitudeOrigin) / 360) * (2 * Math.PI * 6371) * 1000;
+                    var fElevation = fElevationDest - fElevationOrigin;
+                    sOutput += fXValue.toFixed(5).toString() + "," + fYValue.toFixed(5).toString() + "," + fElevation.toFixed(5).toString() + "\n";
+                }
+
+                txtOutput.value = sOutput;
+            }
+            catch (Exception) {
+                txtOutput.value = Exception.description;
+            }
+
+            
+
+        }
+
+        //function RegexTest() {
+
+        //}
+    </script>
+    <title></title>
+</head>
+<body>
+
+    <div>
+        <div id="divHeader" class="header-wrapper">
+            <h1>Matrix to X/Y Coordinate Conversion</h1>
+        </div>
+        <div id="divWrapper">
+            <div id="divInputWrapper">
+                <div class="label-text">
+                    Insert Matrix:
+                </div>
+                <textarea id="txtInput" rows="8"></textarea>
+            </div>
+            <div id="divButtonWrapper" class="button-wrapper">
+                <input type="button" id="btnExecute" value="Translate" onclick="ParseInput()" />
+            </div>
+            <div id="divOutputWrapper">
+                <div class="label-text">
+                    X-Y Coordinate Output:
+                </div>
+                <textarea id="txtOutput" rows="8"></textarea>
+            </div>
+        </div>
+    </div>
+    <!--<fieldset>
+        <legend>
+            Map Test
+        </legend>
+        <div>
+            <div id="map-canvas" style="width:500px; height:500px;"> </div>
+            <input type="text" id="txtLocation" />
+        </div>
+    </fieldset>-->
+</body>
+</html>
